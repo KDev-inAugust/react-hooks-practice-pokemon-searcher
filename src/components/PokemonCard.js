@@ -19,7 +19,7 @@ function cardClickToggle(){
 
   return (
     <Card>
-      <div onClick={cardClickToggle}>
+      <div  onClick={cardClickToggle}>
         <div className="image">
           <img src={cardSide==="front" ? sprites.front : sprites.back} alt="oh no!" />
         </div>
