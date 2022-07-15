@@ -1,20 +1,19 @@
-import React, {useState} from "react";
+import React from "react";
 
-function Search() {
+function Search({setSearchInput, searchInput}) {
 
-  const [searchInput, setSearchInput]=useState("")
+  
 
-  function controlSearchInput(e){
-    setSearchInput(e.target.value)
-  }
+    function handleOnChange(e){
+      setSearchInput(e.target.value)
+    }
 
   return (
     <div className="ui search">
       <div className="ui icon input">
-        <input onChange={controlSearchInput} className="prompt" />
+        <input onChange={handleOnChange} className="prompt" />
         <i className="search icon" />
       </div>
-      <div>i can delete this div {searchInput}</div>
     </div>
   );
 }
