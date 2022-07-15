@@ -15,8 +15,7 @@ function PokemonCollection({cardData, setCardData, searchInput}) {
     }
   })
 
-  console.log(cardsToRender);
-
+ 
 
   return (
     <Card.Group itemsPerRow={6}>

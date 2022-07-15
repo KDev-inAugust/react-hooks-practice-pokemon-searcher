@@ -6,23 +6,38 @@ import { Container } from "semantic-ui-react";
 
 function PokemonPage() {
 
-  const [searchInput, setSearchInput]=useState("")
-
-
+  
   const [cardData, setCardData] = useState([])
+  const [searchInput, setSearchInput]=useState("")
+  const [formNameData, setFormNameData]=useState("");
+  const [formHpData, setFormHpData]=useState("");
+  const [frontImageData, setFrontImageData]=useState("");
+  const [backImageData, setBackImageData]=useState("");
+  
+
+
   useEffect (()=>{
     fetch('http://localhost:3001/pokemon')
     .then(res=>res.json())
     .then(data=>setCardData(data))
   },[])
 
+const newPokemon={
+  name:formNameData,
+  hp:formHpData,
+  sprites: {
+    front: frontImageData,
+    back: backImageData
+  }
+}
 
+console.log(newPokemon)
 
   return (
     <Container>
       <h1>Pokemon Searcher</h1>
       <br />
-      <PokemonForm />
+      <PokemonForm setBackImageData={setBackImageData} setFrontImageData={setFrontImageData} setFormHpData={setFormHpData} setFormNameData={setFormNameData}/>
       <br />
       <Search setSearchInput={setSearchInput} searchInput={searchInput}/>
       <br />
