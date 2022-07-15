@@ -1,12 +1,13 @@
 import React from "react";
 import { Form } from "semantic-ui-react";
 
-function PokemonForm({setFormNameData, setFormHpData, setFrontImageData, setBackImageData}) {
+function PokemonForm({handlePostNew, setFormNameData, setFormHpData, setFrontImageData, setBackImageData}) {
 
 
 function handleSubmit(e){
 e.preventDefault();
-console.log('handle submit')
+console.log('handle submit');
+handlePostNew();
 }
 
 function handleNameChange(e){

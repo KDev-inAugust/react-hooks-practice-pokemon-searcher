@@ -31,13 +31,29 @@ const newPokemon={
   }
 }
 
+function handlePostNew (){
+
+  fetch("http://localhost:3001/pokemon", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(newPokemon)
+  })
+  .then(res=>res.json())
+    .then((data)=>console.log(data))
+
+  setCardData([...cardData, newPokemon]);
+  console.log("post attempted");
+}
+
 console.log(newPokemon)
 
   return (
     <Container>
       <h1>Pokemon Searcher</h1>
       <br />
-      <PokemonForm setBackImageData={setBackImageData} setFrontImageData={setFrontImageData} setFormHpData={setFormHpData} setFormNameData={setFormNameData}/>
+      <PokemonForm handlePostNew={handlePostNew} setBackImageData={setBackImageData} setFrontImageData={setFrontImageData} setFormHpData={setFormHpData} setFormNameData={setFormNameData}/>
       <br />
       <Search setSearchInput={setSearchInput} searchInput={searchInput}/>
       <br />
